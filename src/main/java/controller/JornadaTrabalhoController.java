@@ -15,7 +15,6 @@ import service.JornadaTrabalhoService;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/jornada")
