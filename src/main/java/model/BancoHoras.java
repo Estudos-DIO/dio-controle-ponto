@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 public class BancoHoras {
 
     @AllArgsConstructor
-    //@NoArgsConstructor
+    @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
     public class BancoHorasId implements Serializable {

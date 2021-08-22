@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 public class Movimentacao {
 
     @AllArgsConstructor
-    //@NoArgsConstructor
+    @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
     public class MovimentacaoId implements Serializable {

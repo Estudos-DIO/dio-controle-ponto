@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode      // implementa hashCode e equals
 @Builder                // instanciação pelo build
 @Entity
+@Audited                // permitir auditoria na tabela
 public class JornadaTrabalho {
 
     @Id
