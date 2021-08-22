@@ -1,5 +1,9 @@
 package controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import model.JornadaTrabalho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,14 +26,24 @@ public class JornadaTrabalhoController {
 
     @Autowired
     private JornadaTrabalhoService jornadaTrabalhoService;
-
+    //------------------------------------------------------------------------------------------------------------------
+    @ApiOperation( value="Insere uma nova Jornada de Trabalho.", notes="Insere uma nova Jornada de Trabalho." )
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "Retorna a jornada de trabalho."),
+            @ApiResponse(code = 500, message = "Houve o lançamento de uma exceção.")
+    })
     @PostMapping
     public JornadaTrabalho criarJornada( @RequestBody JornadaTrabalho jornadaTrabalho ) {
         return jornadaTrabalhoService.salvarOuAtualizar( jornadaTrabalho );
     }
-
+    //------------------------------------------------------------------------------------------------------------------
+    @ApiOperation( value="Retorna os dados de uma jornada de trabalho, se ela existir.", notes="Retorna os dados de uma jornada de trabalho, se ela existir." )
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "Jornada de trabalho encontrada com sucesso."),
+            @ApiResponse(code = 404, message = "Jornada de trabalho não existe.")
+    })
     @GetMapping(value="/{id}")
-    public ResponseEntity<Object> obterJornada( @PathVariable("id") Long id ) {
+    public ResponseEntity<Object> obterJornada( @ApiParam(value="ID da Jornada de Trabalho.") @PathVariable("id") Long id ) {
 
         JornadaTrabalho jornadaTrabalho = jornadaTrabalhoService.obterPorId( id );
         ResponseEntity<Object> respJornadaTrabalho = null;
@@ -42,14 +56,23 @@ public class JornadaTrabalhoController {
 
         return respJornadaTrabalho;
     }
-
+    //------------------------------------------------------------------------------------------------------------------
+    @ApiOperation( value="Insere todas as Jornadas de Trabalho.", notes="Insere todas as Jornadas de Trabalho." )
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "Retorna todas as jornadas de trabalho ou nenhuma, quando não existir.")
+    })
     @GetMapping
     public List<JornadaTrabalho> obterTodos() {
         return jornadaTrabalhoService.retornarTodos();
     }
-
+    //------------------------------------------------------------------------------------------------------------------
+    @ApiOperation( value="Remove uma nova Jornada de Trabalho.", notes="Remove uma nova Jornada de Trabalho." )
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "Jornada de trabalho removida com sucesso."),
+            @ApiResponse(code = 403, message = "Erro ao remover uma Jornada de Trabalho.")
+    })
     @DeleteMapping(value="/{id}")
-    public ResponseEntity<Object> removerPorId( @PathVariable("id") Long id ) {
+    public ResponseEntity<Object> removerPorId( @ApiParam(value="ID da Jornada de Trabalho.") @PathVariable("id") Long id ) {
 
         ResponseEntity<Object> objRemovido = null;
 
@@ -63,10 +86,14 @@ public class JornadaTrabalhoController {
 
         return objRemovido;
     }
-
+    //------------------------------------------------------------------------------------------------------------------
+    @ApiOperation( value="Altera uma nova Jornada de Trabalho existente.", notes="Altera uma nova Jornada de Trabalho existente." )
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "Jornada de trabalho foi alterada/inserida com sucesso.")
+    })
     @PutMapping
     public JornadaTrabalho alterarJornada( @RequestBody JornadaTrabalho jornadaTrabalho ) {
         return jornadaTrabalhoService.salvarOuAtualizar( jornadaTrabalho );
     }
-
+    //------------------------------------------------------------------------------------------------------------------
 }

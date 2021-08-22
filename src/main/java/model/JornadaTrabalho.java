@@ -1,5 +1,6 @@
 package model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -23,10 +24,12 @@ import javax.persistence.Id;
 @Audited                // permitir auditoria na tabela
 public class JornadaTrabalho {
 
+    @ApiModelProperty(value = "Identificador da jornada de trabalho.", reference = "false")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ApiModelProperty(value = "Descrição da jornada de trabalho.", reference = "true")
     private String descricao;
 
 }
