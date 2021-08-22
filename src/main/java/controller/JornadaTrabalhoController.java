@@ -37,7 +37,7 @@ public class JornadaTrabalhoController {
         if( jornadaTrabalho != null ) {
             respJornadaTrabalho = new ResponseEntity<>( jornadaTrabalho, HttpStatus.OK );
         } else {
-            respJornadaTrabalho = new ResponseEntity<>( new NoSuchElementException("Elemento NÃO encontrado!"), HttpStatus.NOT_FOUND );
+            respJornadaTrabalho = new ResponseEntity<>( "Elemento NÃO encontrado!", HttpStatus.NOT_FOUND );
         }
 
         return respJornadaTrabalho;
