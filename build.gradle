@@ -28,9 +28,10 @@ dependencies {
 
 	implementation 'com.h2database:h2'
 
-	compileOnly group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
-	compileOnly group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
-	compileOnly group: 'io.springfox', name: 'springfox-bean-validators', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '3.0.0'
 
 	compileOnly group: 'org.hibernate', name: 'hibernate-envers', version: '5.5.6.Final'
 	compileOnly group: 'org.hibernate', name: 'hibernate-validator', version: '7.0.1.Final'
